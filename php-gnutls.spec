@@ -6,7 +6,7 @@
 Summary:	GnuTLS PHP Module
 Name:		php-%{modname}
 Version:	0.3
-Release:	%mkrel 0.rc1.1
+Release:	%mkrel 0.rc1.2
 Group:		Development/PHP
 License:	GPL
 URL:		http://openvcp.org/
@@ -43,6 +43,18 @@ cat > %{buildroot}%{_sysconfdir}/php.d/%{inifile} << EOF
 extension = %{soname}
 EOF
 
+%post
+if [ -f /var/lock/subsys/httpd ]; then
+    %{_initrddir}/httpd restart >/dev/null || :
+fi
+
+%postun
+if [ "$1" = "0" ]; then
+    if [ -f /var/lock/subsys/httpd ]; then
+	%{_initrddir}/httpd restart >/dev/null || :
+    fi
+fi
+
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
@@ -51,4 +63,3 @@ EOF
 %doc README*
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
