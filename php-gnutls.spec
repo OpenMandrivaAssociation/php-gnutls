@@ -14,6 +14,7 @@ Source0:	http://files.openvcp.org/modphp-%{modname}-%{version}-rc1.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pkgconfig
 BuildRequires:	gnutls-devel
+BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 This is a dynamic shared object (DSO) that adds GnuTLS support to PHP.
