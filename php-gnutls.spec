@@ -6,7 +6,7 @@
 Summary:	GnuTLS PHP Module
 Name:		php-%{modname}
 Version:	0.3
-Release:	%mkrel 0.rc1.23
+Release:	%mkrel 0.rc1.24
 Group:		Development/PHP
 License:	GPLv2+
 URL:		http://openvcp.org/
