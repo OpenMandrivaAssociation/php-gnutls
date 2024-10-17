@@ -9,7 +9,7 @@ Version:	0.3
 Release:	%mkrel 0.rc1.24
 Group:		Development/PHP
 License:	GPLv2+
-URL:		http://openvcp.org/
+URL:		https://openvcp.org/
 Source0:	http://files.openvcp.org/modphp-%{modname}-%{version}-rc1.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pkgconfig
